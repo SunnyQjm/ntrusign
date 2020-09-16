@@ -15,6 +15,5 @@ NTRUSignKeyChain/CMakeFiles/
 NTRUSignKeyChain/bench/
 NTRUSignKeyChain/cmake_install.cmake
 NTRUSignKeyChain/CMakeCache.txt
-NTRUSignKeyChain/Makefile
 NTRUSignKeyChain/test_ntru
 *.cbp
