@@ -74,7 +74,7 @@ namespace ndn {
         return buffer;
       }
 
-      bool PublicKey::importPrivate(const uint8_t *data, int size) {
+      bool PublicKey::import(const uint8_t *data, int size) {
         if (size != PASS_N * sizeof(int64)) {
           throw Error("PublicKey data size not match, require " + std::to_string(PASS_N * sizeof(int64) + HASH_BYTES) +
                       ", but input " + std::to_string(size));

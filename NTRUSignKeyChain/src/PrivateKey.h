@@ -51,7 +51,7 @@ namespace ndn {
         // export and import
         ConstBufferPtr exportPrivateAsBuffer();
 
-        bool importPrivate(const uint8_t *data, int size);
+        bool import(const uint8_t *data, int size);
       public:
         static std::unique_ptr<PrivateKey> generateNTRUKey();
 

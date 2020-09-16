@@ -5,21 +5,17 @@
 #ifndef NTRUSIGN_SIGNATURE_H
 #define NTRUSIGN_SIGNATURE_H
 
-#include <cstdint>
-#include <memory>
-#include <vector>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 #include <ntrusign/constants.h>
 #include <ntrusign/pass_types.h>
 #include <ntrusign/hash.h>
-#include <ntrusign/ntt.h>
-#include <ntrusign/pass.h>
 #ifdef __cplusplus
 }
 #endif
+
+#include "Buffer.h"
 
 namespace ndn {
   namespace security {
@@ -36,9 +32,16 @@ namespace ndn {
 
         ~Signature() = default;
 
-      public:
+        // export and import
+        ConstBufferPtr exportPrivateAsBuffer();
+
+        bool import(const uint8_t *_data, int size);
+
+      private:
         int64 data[PASS_N]{};
         unsigned char h[HASH_BYTES]{};
+        friend class PrivateKey;
+        friend class PublicKey;
       };
     }
   }
