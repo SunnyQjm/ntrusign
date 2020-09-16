@@ -1,0 +1,1 @@
+sudo cp -r data /usr/local/etc/ndn

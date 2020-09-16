@@ -1,0 +1,3 @@
+(fftw-3.3.8 fftw_wisdom #x458a31c8 #x92381c4c #x4f974889 #xcd46f97e
+  (fftw_rdft2_rank0_register 0 #x1040 #x1040 #x0 #xd51d2874 #x6aa13774 #xcb74b223 #xe9f37118)
+)
