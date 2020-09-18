@@ -74,9 +74,9 @@ namespace ndn {
         return sign(msg.c_str(), msg.size());
       }
 
-      std::unique_ptr<std::vector<int64>> PrivateKey::derivePublicKey() const {
-        auto buffer = std::make_unique<std::vector<int64>>(PASS_N);
-        gen_pubkey(buffer->data(), mImpl->key);
+      std::unique_ptr<Buffer> PrivateKey::derivePublicKey() const {
+        auto buffer = std::make_unique<Buffer>(PASS_N * sizeof(int64));
+        gen_pubkey((int64 *)buffer->data(), mImpl->key);
         return buffer;
       }
 

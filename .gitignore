@@ -17,3 +17,5 @@ NTRUSignKeyChain/cmake_install.cmake
 NTRUSignKeyChain/CMakeCache.txt
 NTRUSignKeyChain/test_ntru
 *.cbp
+/libntrusign.a
+src/*.o

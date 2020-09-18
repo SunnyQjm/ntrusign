@@ -24,7 +24,19 @@
 
 /* Parameters */
 #ifndef PASS_N
-#define PASS_N 769
+#define PASS_N 433
+#endif
+
+#if PASS_N == 129
+#define PASS_p 775937
+#define PASS_g 268673
+#define PASS_k 4095
+#define PASS_b 19
+#define PASS_t 60
+#define PASS_RADER_POLY "/usr/local/etc/ndn/data/129_rader.dat"
+#define PASS_PERMUTATION "/usr/local/etc/ndn/data/129_perm.dat"
+#define PASS_EVAL_POINTS "/usr/local/etc/ndn/data/129_points.dat"
+#define PASS_WISDOM "/usr/local/etc/ndn/data/129_wisdom.dat"
 #endif
 
 #if PASS_N == 433

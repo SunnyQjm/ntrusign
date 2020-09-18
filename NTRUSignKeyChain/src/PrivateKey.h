@@ -39,7 +39,7 @@ namespace ndn {
 
         ~PrivateKey();
 
-        std::unique_ptr<std::vector<int64>> derivePublicKey() const;
+        std::unique_ptr<Buffer> derivePublicKey() const;
 
         // sign method
         std::unique_ptr<Signature> sign(const unsigned char *message, int messageLen);

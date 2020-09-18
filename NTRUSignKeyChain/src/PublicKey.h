@@ -45,7 +45,7 @@ namespace ndn {
         bool verify(const std::string &msg, const Signature& signature);
 
         // export and import
-        ConstBufferPtr exportPrivateAsBuffer();
+        ConstBufferPtr exportPublicKeyAsBuffer();
 
         bool import(const uint8_t *data, int size);
       public:

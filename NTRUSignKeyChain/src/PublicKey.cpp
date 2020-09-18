@@ -50,7 +50,7 @@ namespace ndn {
       std::unique_ptr<PublicKey> PublicKey::derivePublicKey(const PrivateKey &privateKey) {
         auto buffer = privateKey.derivePublicKey();
         auto publicKey = std::make_unique<PublicKey>();
-        std::move(buffer->begin(), buffer->end(), std::begin(publicKey->mImpl->pubKey));
+        std::move((int64 *) buffer->data(), ((int64 *) buffer->data()) + PASS_N, std::begin(publicKey->mImpl->pubKey));
         return publicKey;
       }
 
@@ -67,7 +67,7 @@ namespace ndn {
         return verify(msg.c_str(), msg.size(), signature);
       }
 
-      ConstBufferPtr PublicKey::exportPrivateAsBuffer() {
+      ConstBufferPtr PublicKey::exportPublicKeyAsBuffer() {
         auto buffer = std::make_shared<Buffer>(PASS_N * sizeof(int64));
         std::copy((unsigned char *) mImpl->pubKey, ((unsigned char *) mImpl->pubKey) + PASS_N * sizeof(int64),
                   buffer->begin());

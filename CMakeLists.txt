@@ -34,9 +34,15 @@ set(CURRENT_INCLUDE src/bsparseconv.h
         src/poly.h
         src/randombytes.h)
 
+add_executable(bench ${CURRENT_SOURCES})
+target_link_libraries(bench fftw3 m)
+
 ADD_LIBRARY(ntrusign SHARED ${CURRENT_SOURCES} ${CURRENT_INCLUDE})
+ADD_LIBRARY(ntrusign_static STATIC ${CURRENT_SOURCES} ${CURRENT_INCLUDE})
+SET_TARGET_PROPERTIES(ntrusign_static PROPERTIES OUTPUT_NAME "ntrusign")
 
 INSTALL(FILES ${CURRENT_INCLUDE} DESTINATION ${PREFIX}/include/ntrusign)
 
-INSTALL(TARGETS ntrusign
-        LIBRARY DESTINATION ${PREFIX}/lib)
+INSTALL(TARGETS ntrusign ntrusign_static
+        LIBRARY DESTINATION ${PREFIX}/lib
+        ARCHIVE DESTINATION ${PREFIX}/lib)

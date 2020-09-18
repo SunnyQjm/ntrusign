@@ -18,5 +18,7 @@ set(CURRENT_SOURCES
         ../src/verify.c)
 
 add_executable(test_ntru src/utils/NTRUSignUtil.cpp src/utils/NTRUSignUtil.h src/main.cpp src/PrivateKey.cpp
-        src/PrivateKey.h src/Signature.cpp src/Signature.h src/PublicKey.cpp src/PublicKey.h src/Buffer.h)
-target_link_libraries(test_ntru ntrusign fftw3 m ndn-cxx)
+        src/PrivateKey.h src/Signature.cpp src/Signature.h src/PublicKey.cpp src/PublicKey.h src/Buffer.h
+        #src/NTRUKeyChain.cpp src/NTRUKeyChain.h src/tpm/Tpm.cpp src/tpm/Tpm.h src/tpm/KeyHandle.cpp src/tpm/KeyHandle.h src/tpm/KeyHandleMem.cpp src/tpm/KeyHandleMem.h src/tpm/BackEnd.cpp src/tpm/BackEnd.h src/common.h src/tpm/BackEndFile.cpp src/tpm/BackEndFile.h
+        )
+target_link_libraries(test_ntru ntrusign fftw3 m boost_system ndn-cxx)
